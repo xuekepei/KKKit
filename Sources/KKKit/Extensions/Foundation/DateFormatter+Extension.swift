@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension DateFormatter {
+public extension DateFormatter {
     static let iso8601Full: DateFormatter = {
         //Full time format
         let formatter = DateFormatter()

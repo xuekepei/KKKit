@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension CIImage {
+public extension CIImage {
     func pixelBuffer() -> CVPixelBuffer? {
         var pixelBuffer: CVPixelBuffer?
         let attrs = [kCVPixelBufferCGImageCompatibilityKey as String :true ,

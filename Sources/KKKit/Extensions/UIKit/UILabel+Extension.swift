@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension UILabel {
+public extension UILabel {
     
     func fontSize(_ offset:CGFloat) {
         // Set the offset of the font size

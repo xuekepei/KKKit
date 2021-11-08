@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension UIColor {
+public extension UIColor {
 //     MARK: - Convenience Intializers
     convenience init(red: Int, green: Int, blue: Int) {
         assert(red >= 0 && red <= 255, "Invalid red component")

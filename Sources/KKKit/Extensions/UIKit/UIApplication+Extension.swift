@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIApplication {
+public extension UIApplication {
     
     func activityWindow() -> UIWindow? {
         // Find the top-most View Controller

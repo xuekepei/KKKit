@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Date {
+public extension Date {
     
     func localString(formatter :String = "YYYY\("year".localized!)MM\("month".localized!)dd\("day".localized!)(EEE) HH:mm" ) -> String {
         // Localize date as a string

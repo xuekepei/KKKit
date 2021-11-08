@@ -8,14 +8,14 @@
 import Foundation
 import UIKit
 
-extension UIButton {
+public extension UIButton {
     
     func fontSize(_ offset:CGFloat){
         self.titleLabel?.fontSize(offset)
     }
 }
 
-extension UIButton {
+public extension UIButton {
     
     enum KKButtonImageEdgeInsetsStyle {
         case top, left, right, bottom

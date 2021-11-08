@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import Combine
 
-extension UIView {
+public extension UIView {
     func addKeyboardEventMonitor() {
         let animateDuration = 0.3
         _ = NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification).sink { noti in
