@@ -8,20 +8,20 @@
 import Foundation
 import UIKit
 
-public extension UIButton {
+extension UIButton {
     
-    func fontSize(_ offset:CGFloat){
+    public func fontSize(_ offset:CGFloat){
         self.titleLabel?.fontSize(offset)
     }
 }
 
-public extension UIButton {
+extension UIButton {
     
-    enum KKButtonImageEdgeInsetsStyle {
+    public enum KKButtonImageEdgeInsetsStyle {
         case top, left, right, bottom
     }
     
-    func imagePosition(at style: KKButtonImageEdgeInsetsStyle, space: CGFloat) {
+    public func imagePosition(at style: KKButtonImageEdgeInsetsStyle, space: CGFloat) {
         let imageWidth = self.imageView?.frame.size.width
         let imageHeight = self.imageView?.frame.size.height
         

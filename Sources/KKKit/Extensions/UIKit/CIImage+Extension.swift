@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-public extension CIImage {
-    func pixelBuffer() -> CVPixelBuffer? {
+extension CIImage {
+    public func pixelBuffer() -> CVPixelBuffer? {
         var pixelBuffer: CVPixelBuffer?
         let attrs = [kCVPixelBufferCGImageCompatibilityKey as String :true ,
                      kCVPixelBufferCGBitmapContextCompatibilityKey as String :true,
@@ -32,15 +32,15 @@ public extension CIImage {
     }
 }
 
-public extension CIImage {
+extension CIImage {
     
-    struct OverFrameInfo {
+    public struct OverFrameInfo {
         let bgImage:CIImage
         let fullScreen:Bool
         var extent:CGRect?
     }
     
-    func over(of frame:OverFrameInfo) -> CIImage? {
+    public func over(of frame:OverFrameInfo) -> CIImage? {
         guard let extent = frame.extent else {
             return nil
         }

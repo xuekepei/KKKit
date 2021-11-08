@@ -10,8 +10,8 @@ import UIKit
 
 private weak var currentFirstResponder: AnyObject?
 
-public extension UIResponder {
-    static func firstResponder() -> AnyObject? {
+extension UIResponder {
+    public static func firstResponder() -> AnyObject? {
         currentFirstResponder = nil
         UIApplication.shared.sendAction(#selector(findFirstResponder(_:)), to: nil, from: nil, for: nil)
         return currentFirstResponder

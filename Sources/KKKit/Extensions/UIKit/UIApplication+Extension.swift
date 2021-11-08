@@ -7,16 +7,16 @@
 
 import UIKit
 
-public extension UIApplication {
+extension UIApplication {
     
-    func activityWindow() -> UIWindow? {
+    public func activityWindow() -> UIWindow? {
         // Find the top-most View Controller
         let keyWindow = UIApplication.shared.windows
                 .filter({$0.isKeyWindow}).first
         return keyWindow
     }
     
-    func activityViewController() -> UIViewController? {
+    public func activityViewController() -> UIViewController? {
         // Find the top-most View Controller
         let keyWindow = self.activityWindow()
         let base: UIViewController? = keyWindow?.rootViewController

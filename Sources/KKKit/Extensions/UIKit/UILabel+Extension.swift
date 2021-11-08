@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 
-public extension UILabel {
+extension UILabel {
     
-    func fontSize(_ offset:CGFloat) {
+    public func fontSize(_ offset:CGFloat) {
         // Set the offset of the font size
         let font = self.font.withSize(UIFont.labelFontSize + offset)
         self.font = font

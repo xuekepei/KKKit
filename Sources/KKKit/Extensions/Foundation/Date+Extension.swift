@@ -7,9 +7,9 @@
 
 import Foundation
 
-public extension Date {
+extension Date {
     
-    func localString(formatter :String = "YYYY\("year".localized!)MM\("month".localized!)dd\("day".localized!)(EEE) HH:mm" ) -> String {
+    public func localString(formatter :String = "YYYY\("year".localized!)MM\("month".localized!)dd\("day".localized!)(EEE) HH:mm" ) -> String {
         // Localize date as a string
         let dateFormatter = DateFormatter()
         dateFormatter.calendar = Calendar(identifier: .japanese)
@@ -22,21 +22,21 @@ public extension Date {
     /// Get time difference
     /// - Parameter date: Date
     /// - Returns: DateComponents
-    func components(from date:Date = Date(),unit : Set<Calendar.Component> = [.day , .hour , .minute , .second]) -> DateComponents {
+    public func components(from date:Date = Date(),unit : Set<Calendar.Component> = [.day , .hour , .minute , .second]) -> DateComponents {
         
         let calendar = Calendar(identifier: .japanese)
         let components = calendar.dateComponents(unit, from: date,to: self)
         return components
     }
     
-    func startOfMonth() -> Date {
+    public func startOfMonth() -> Date {
         let calendar = NSCalendar.current
         let components = calendar.dateComponents([.year, .month], from: self)
         let startOfMonth = calendar.date(from: components)!
         return startOfMonth
     }
     
-    func endOfMonth() -> Date {
+    public func endOfMonth() -> Date {
         let calendar = NSCalendar.current
         var components = DateComponents()
         components.month = 1
@@ -47,8 +47,8 @@ public extension Date {
 
 }
 
-public extension Date {
-    init(_ time:String, _ dateFormatter:String?=nil) {
+extension Date {
+    public init(_ time:String, _ dateFormatter:String?=nil) {
         let formatter = DateFormatter.serverSyncDateFormatter
         if dateFormatter != nil {
             formatter.dateFormat = dateFormatter
@@ -58,8 +58,8 @@ public extension Date {
     }
 }
 
-public extension Date {
-    func second(_ fromDate:Date=Date()) -> Int {
+extension Date {
+    public func second(_ fromDate:Date=Date()) -> Int {
         return lroundf(Float(self.timeIntervalSince(fromDate)))
     }
 }

@@ -7,8 +7,8 @@
 
 import Foundation
 
-public extension DateFormatter {
-    static let iso8601Full: DateFormatter = {
+extension DateFormatter {
+    public static let iso8601Full: DateFormatter = {
         //Full time format
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
@@ -18,7 +18,7 @@ public extension DateFormatter {
         return formatter
     }()
     
-    static let serverSyncDateFormatter: DateFormatter = {
+    public static let serverSyncDateFormatter: DateFormatter = {
         //Full time format
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
@@ -28,7 +28,7 @@ public extension DateFormatter {
         return formatter
     }()
     
-    static let serverFormatter: DateFormatter = {
+    public static let serverFormatter: DateFormatter = {
         //Server time format
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"

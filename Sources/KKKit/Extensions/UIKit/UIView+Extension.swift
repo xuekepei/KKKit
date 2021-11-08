@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 import Combine
 
-public extension UIView {
-    func addKeyboardEventMonitor() {
+extension UIView {
+    public func addKeyboardEventMonitor() {
         let animateDuration = 0.3
         _ = NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification).sink { noti in
             let keyboardFrame = (noti.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
@@ -35,19 +35,19 @@ public extension UIView {
         self.addEndEditingGesture()
     }
     
-    func addEndEditingGesture() {
+    public func addEndEditingGesture() {
         let tapGesture = UITapGestureRecognizer()
         self.addGestureRecognizer(tapGesture)
-        tapGesture.addTarget(self, action: #selector(tapGestureAction(tap:)))
+        tapGesture.addTarget(self, action: #selector(tapKeyBoardGestureAction(tap:)))
     }
     
-    @objc func tapGestureAction(tap:UIGestureRecognizer) {
+    @objc func tapKeyBoardGestureAction(tap:UIGestureRecognizer) {
         self.endEditing(true)
     }
 }
 
-public extension UIView {
-    func addBorder(_ edge: UIRectEdge, color: UIColor, thickness: CGFloat) {
+extension UIView {
+    public func addBorder(_ edge: UIRectEdge, color: UIColor, thickness: CGFloat) {
         let subview = UIView()
         subview.translatesAutoresizingMaskIntoConstraints = false
         subview.backgroundColor = color
@@ -77,8 +77,8 @@ public extension UIView {
     }
 }
 
-public extension UIView {
-    func screenShot() -> UIImage? {
+extension UIView {
+    public func screenShot() -> UIImage? {
         let renderer = UIGraphicsImageRenderer(bounds: bounds)
         return renderer.image { rendererContext in
             layer.render(in: rendererContext.cgContext)

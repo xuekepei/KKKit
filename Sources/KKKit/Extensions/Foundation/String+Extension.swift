@@ -7,29 +7,29 @@
 
 import Foundation
 
-public extension String {
+extension String {
     
-    var localized: String! {
+    public var localized: String! {
 //        Localization of string
         let localizedString = NSLocalizedString(self, comment: "")
         return localizedString
     }
     
-    func localized(args : CVarArg...) -> String {
+    public func localized(args : CVarArg...) -> String {
         return withVaList(args, { (f:CVaListPointer) -> String in
             (NSString.init(format:NSLocalizedString(self, comment:""), arguments: f) as String)
          })
     }
     
-    var url : URL? {
+    public var url : URL? {
         return URL(string: self)
     }
     
-    var lastPathComponent : String {
+    public var lastPathComponent : String {
         return String(self.split(separator: "/").last ?? "")
     }
     
-    func convertToDictionary() -> [String:AnyObject]? {
+    public func convertToDictionary() -> [String:AnyObject]? {
         if let data = self.data(using: .utf8) {
             do {
                 let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:AnyObject]
@@ -41,7 +41,7 @@ public extension String {
         return nil
     }
     
-    func convertToArray() -> [[String:AnyObject]]? {
+    public func convertToArray() -> [[String:AnyObject]]? {
         if let data = self.data(using: .utf8) {
             do {
                 let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String:AnyObject]]
@@ -53,7 +53,7 @@ public extension String {
         return nil
     }
     
-    func jwtDecode()->[String: Any]{
+    public func jwtDecode()->[String: Any]{
         let segments = components(separatedBy: ".")
         var base64String = segments[1]
         // base64 decode
@@ -74,9 +74,9 @@ public extension String {
     }
 }
 
-public extension String {
+extension String {
     // MARK: - Regular
-    var isURL: Bool {
+    public var isURL: Bool {
         let urlRegEx = "^((https|http|ftp|rtsp|mms)?:\\/\\/)[^\\s]+"
         
         let urlTest = NSPredicate(format:"SELF MATCHES %@", urlRegEx)
