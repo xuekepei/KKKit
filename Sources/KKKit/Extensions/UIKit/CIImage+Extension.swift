@@ -32,7 +32,7 @@ public extension CIImage {
     }
 }
 
-extension CIImage {
+public extension CIImage {
     
     struct OverFrameInfo {
         let bgImage:CIImage

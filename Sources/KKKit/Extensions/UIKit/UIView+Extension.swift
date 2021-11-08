@@ -46,7 +46,7 @@ public extension UIView {
     }
 }
 
-extension UIView {
+public extension UIView {
     func addBorder(_ edge: UIRectEdge, color: UIColor, thickness: CGFloat) {
         let subview = UIView()
         subview.translatesAutoresizingMaskIntoConstraints = false
@@ -77,7 +77,7 @@ extension UIView {
     }
 }
 
-extension UIView {
+public extension UIView {
     func screenShot() -> UIImage? {
         let renderer = UIGraphicsImageRenderer(bounds: bounds)
         return renderer.image { rendererContext in

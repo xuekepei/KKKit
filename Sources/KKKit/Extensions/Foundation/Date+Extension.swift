@@ -47,8 +47,8 @@ public extension Date {
 
 }
 
-extension Date {
-    public init(_ time:String, _ dateFormatter:String?=nil) {
+public extension Date {
+    init(_ time:String, _ dateFormatter:String?=nil) {
         let formatter = DateFormatter.serverSyncDateFormatter
         if dateFormatter != nil {
             formatter.dateFormat = dateFormatter
@@ -58,7 +58,7 @@ extension Date {
     }
 }
 
-extension Date {
+public extension Date {
     func second(_ fromDate:Date=Date()) -> Int {
         return lroundf(Float(self.timeIntervalSince(fromDate)))
     }

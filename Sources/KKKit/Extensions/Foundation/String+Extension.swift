@@ -74,7 +74,7 @@ public extension String {
     }
 }
 
-extension String {
+public extension String {
     // MARK: - Regular
     var isURL: Bool {
         let urlRegEx = "^((https|http|ftp|rtsp|mms)?:\\/\\/)[^\\s]+"
