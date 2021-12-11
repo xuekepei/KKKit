@@ -8,4 +8,9 @@ final class KKKitTests: XCTestCase {
         // results.
         XCTAssertEqual(KKKit().text, "Hello, World!")
     }
+    
+    func testStringToImage() throws {
+        let image = "Test".image()
+        XCTAssertNotNil(image)
+    }
 }
