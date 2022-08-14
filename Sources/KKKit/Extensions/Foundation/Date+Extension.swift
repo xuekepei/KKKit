@@ -9,11 +9,11 @@ import Foundation
 
 extension Date {
     
-    public func localString(formatter :String = "YYYY\("year".localized!)MM\("month".localized!)dd\("day".localized!)(EEE) HH:mm" ) -> String {
+    public func localString(formatter :String = "YYYY\("year".localized!)MM\("month".localized!)dd\("day".localized!)(EEE) HH:mm", locale: Locale = Locale(identifier: "ja_JP") ) -> String {
         // Localize date as a string
         let dateFormatter = DateFormatter()
         dateFormatter.calendar = Calendar(identifier: .japanese)
-        dateFormatter.locale = Locale(identifier: "ja_JP")
+        dateFormatter.locale = locale
         dateFormatter.dateFormat = formatter
         
         return dateFormatter.string(from: self)
