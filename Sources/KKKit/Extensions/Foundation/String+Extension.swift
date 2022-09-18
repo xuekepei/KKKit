@@ -10,10 +10,9 @@ import UIKit
 
 extension String {
     
-    public var localized: String! {
-//        Localization of string
-        let localizedString = NSLocalizedString(self, comment: "")
-        return localizedString
+    public var localized: String {
+//     Localization of string
+        return NSLocalizedString(self, comment: "") 
     }
     
     public func localized(args : CVarArg...) -> String {

@@ -19,4 +19,9 @@ final class KKKitTests: XCTestCase {
         let color = Color(hex: 0x255AA6)
         XCTAssertNotNil(color)
     }
+    
+    func testLocalized() throws {
+        let string = "localized".localized
+        XCTAssertNotNil(string)
+    }
 }
