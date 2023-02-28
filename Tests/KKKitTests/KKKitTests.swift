@@ -23,5 +23,7 @@ final class KKKitTests: XCTestCase {
     func testLocalized() throws {
         let string = "localized".localized
         XCTAssertNotNil(string)
+        
+        let test = Date().localityWeekday()
     }
 }

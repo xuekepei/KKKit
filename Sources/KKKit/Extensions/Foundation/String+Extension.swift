@@ -76,6 +76,21 @@ extension String {
 
 extension String {
     // MARK: - Regular
+    public func evaluate(_ regEx: String) -> Bool {
+        let urlTest = NSPredicate(format:"SELF MATCHES %@", regEx)
+        return urlTest.evaluate(with: self)
+    }
+    
+    public var isEmail: Bool {
+        let regEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
+        return self.evaluate(regEx)
+    }
+    
+    public var isPhone: Bool {
+        let regEx = "^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$"
+        return self.evaluate(regEx)
+    }
+    
     public var isURL: Bool {
         let urlRegEx = "^((https|http|ftp|rtsp|mms)?:\\/\\/)[^\\s]+"
         
@@ -91,6 +106,21 @@ extension String {
         return UIGraphicsImageRenderer(size: size).image { _ in
             (self as NSString).draw(in: CGRect(origin: .zero, size: size), withAttributes: attributes)
         }
+    }
+}
+
+extension String {
+    /**
+     生成随机字符串,
+     
+     - parameter length: 生成的字符串的长度
+     
+     - returns: 随机生成的字符串
+     */
+    public static func random(of length: Int = 6) -> String {
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+            
+        return String((0..<length).map{ _ in letters.randomElement()! })
     }
 }
 
