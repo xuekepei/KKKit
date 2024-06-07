@@ -18,8 +18,13 @@ extension UIColor {
         self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
     }
     
-    public convenience init(hexRGB:Int) {
-        self.init(red:(hexRGB >> 16) & 0xff, green:(hexRGB >> 8) & 0xff, blue:hexRGB & 0xff)
+    public convenience init(hex:Int) {
+        self.init(
+            red: CGFloat((hex >> 16) & 0xff) / 255.0,
+            green: CGFloat((hex >> 8) & 0xff) / 255.0,
+            blue: CGFloat(hex & 0xff) / 255.0,
+            alpha: 1.0
+        )
     }
     
     public func image(_ size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
@@ -34,33 +39,33 @@ extension UIColor {
 
     public class func primaryBlackColor() -> UIColor {
         //  main color tone
-        return UIColor(hexRGB: 0x191919)
+        return UIColor(hex: 0x191919)
     }
     
     public class func primaryWhiteColor() -> UIColor {
         //  main color tone
-        return UIColor(hexRGB: 0xFFFFFF)
+        return UIColor(hex: 0xFFFFFF)
     }
     
     public class func primaryPinkColor() -> UIColor {
         //  main color tone
-        return UIColor(hexRGB: 0xE05193)
+        return UIColor(hex: 0xE05193)
     }
     
     public class func primaryRoseRedColor() -> UIColor {
         //  main color tone
-        return UIColor(hexRGB: 0xE05193).withAlphaComponent(0.5)
+        return UIColor(hex: 0xE05193).withAlphaComponent(0.5)
     }
     
     public class func primaryGrayColor() -> UIColor {
         //  main color tone
-        return UIColor(hexRGB: 0x3F3F3F)
+        return UIColor(hex: 0x3F3F3F)
     }
     
     public class func cgColors(hexRGB:Array<Int>, alpha:CGFloat = 1) -> Array<CGColor> {
         var colors = Array<CGColor>()
         for hex in hexRGB {
-            let cgColor = UIColor(hexRGB: hex).withAlphaComponent(alpha).cgColor
+            let cgColor = UIColor(hex: hex).withAlphaComponent(alpha).cgColor
             colors.append(cgColor)
         }
         
